@@ -1,0 +1,574 @@
+:root {
+  --w: 1080px;
+  --c: #111;
+  --muted: #666;
+  --remuted: #9a9a9a;
+  --bg: #f7f9fc;
+  --line: #eaecef;
+  --brand: #2d6cdf;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  color: var(--c);
+  line-height: 1.6;
+  background: #fff
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none
+}
+
+.container {
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+/* -------- 導覽 ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--line)
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px
+}
+
+/* .brand{font-weight:860; letter-spacing:.3px}*/
+.menu {
+  display: flex;
+  gap: 18px
+}
+
+.menu a {
+  color: #333;
+  font-weight: 600
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  /* 垂直置中 */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.brand .logo {
+  width: 36px;
+  /* 圖片寬度 */
+  height: 36px;
+  /* 圖片高度 */
+  margin-right: 12px;
+  /* 圖片和文字的距離 */
+}
+
+
+
+/*----- 主視覺 / 簡介 ----- */
+header {
+  background: var(--bg);
+  /*--bg*/
+  border-bottom: 1px solid var(--line)
+}
+
+.hero {
+  padding: 64px 0;
+  text-align: center
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 8px;
+  color: var(--c);
+}
+
+.subtitle1 {
+  color: var(--muted);
+  margin: 0 0 12px;
+  font-size: 2rem;
+  font-style: italic
+}
+
+.subtitle2 {
+  color: var(--muted);
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px
+}
+
+.chip1 {
+  color: #060606;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.chip {
+  background: #e9eefb;
+  color: #18387d;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .9rem
+}
+
+section {
+  padding: 64px 0
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin: 0 0 24px;
+  text-align: center
+}
+
+/* -------- 關於我 -------- */
+.about {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  color: #333
+}
+
+
+
+
+
+
+
+/* -------- 技能圖示卡片 -------- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto
+}
+
+.skill-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  background: #eff6f9;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .08)
+}
+
+.skill-card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px
+}
+
+.skill-card b {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 6px
+}
+
+.skill-card span {
+  color: var(--muted);
+  font-size: .9rem
+}
+
+/* ------- 作品集 卡片排版 -------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 預設一列兩張 */
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    /* 螢幕小於768px時改為單列一張 */
+  }
+}
+
+.card {
+  border: 1px solid var(--line, #ddd);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 12px 16px;
+  flex-grow: 1;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 10px;
+  text-indent: 2em;
+}
+
+/* <查閱更多>按鈕 */
+.btn {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #4facfe 0%, #0061ff 100%);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 97, 255, 0.3);
+}
+
+/*------ 個人經歷（時間軸）------- */
+
+/* 經歷清單 */
+.exp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+}
+
+/* 左側時間欄 */
+.exp-aside {
+  text-align: right;
+  padding-top: 6px;
+}
+
+.exp-aside time {
+  display: block;
+  font-weight: 600;
+  color: #666;
+}
+
+.exp-type {
+  display: inline-flex;
+  /* inline-block*/
+  align-items: center;
+  /* 垂直置中 */
+  justify-content: center;
+  margin-top: 6px;
+  padding: 2px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(0, 123, 255, .08);
+  color: #0a58ca;
+}
+
+
+
+/* 卡片區塊 */
+.exp-card {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
+}
+
+/* 卡片標題區 */
+.exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.exp-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.exp-status {
+  color: #777;
+  font-size: 1rem;
+}
+
+/* 描述與標籤 */
+.exp-desc {
+  margin: 8px 0 10px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.exp-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.exp-tags li {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f2f5ff;
+  color: #18387d;
+  border: 1px solid #e3e9ff;
+}
+
+/* RWD */
+@media (max-width: 720px) {
+  .exp-item {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-aside {
+    text-align: left;
+    order: -1;
+  }
+}
+
+
+/* 能力矩陣（替代 Skill Tree） */
+.competency-matrix {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.competency-matrix .row {
+  display: grid;
+  grid-template-columns: 140px 1fr 120px 1.2fr; /* 類別 / 技能 / 等級 / 佐證 */
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #eaecef;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+
+.competency-matrix .row.head {
+  background: #f7f9ff;
+  border: 1px solid #e3e9ff;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.c-cat { font-weight: 700; color: #18387d; }
+.c-skill { font-weight: 600; }
+.c-proof { color: #444; }
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid transparent;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.badge.main  { background: rgba(0,97,255,.10); color:#0a58ca; border-color:#bcd4ff; }
+.badge.good  { background: rgba(16,185,129,.12); color:#0f766e; border-color:#c8f3e5; }
+.badge.basic { background: rgba(245,158,11,.14); color:#92400e; border-color:#fde7c2; }
+
+.legend { display:flex; gap:12px; align-items:center; margin: 6px 0 8px; }
+.legend .key { display:inline-flex; gap:8px; align-items:center; font-size:14px; color:#333; }
+.legend .swatch { width:12px; height:12px; border-radius:3px; display:inline-block; }
+.legend .key.main .swatch  { background:#bcd4ff; }
+.legend .key.good .swatch  { background:#c8f3e5; }
+.legend .key.basic .swatch { background:#fde7c2; }
+
+.matrix-note { color:#555; margin-top: 8px; }
+
+/* RWD：手機改為卡片堆疊 */
+@media (max-width: 820px) {
+  .competency-matrix .row {
+    grid-template-columns: 1fr; /* 直向堆疊 */
+    gap: 6px;
+  }
+  .competency-matrix .row.head { display: none; } /* 行動版省略表頭 */
+  .c-cat { color:#18387d; opacity:.9; }
+  .c-proof { font-size: .95rem; }
+}
+
+
+/* ------- 聯絡 -------- */
+.contact {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center
+}
+
+.contact .card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+/* --------- 底部 --------- */
+footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: #666;
+  padding: 24px 0
+}
+
+/* RWD */
+@media (max-width:600px) {
+  h1 {
+    font-size: 1.7rem
+  }
+
+  .hero {
+    padding: 44px 0
+  }
+}
+
+/* 試試看 */
+/* CONTACT visual */
+.contact-visual .contact-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 48px;
+  padding: 32px 0 28px;
+}
+
+.cicon {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .18));
+}
+
+.cicon img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contact-title {
+  margin-left: auto;
+  font-weight: 800;
+  letter-spacing: .22em;
+  /* 讓 CONTACT ME 更有間距 */
+}
+
+/* 底部三條線 */
+.contact-lines {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background: repeating-linear-gradient(to bottom,
+      #111 0, #111 1px,
+      /* 線1 */
+      transparent 1px, transparent 3px,
+      #111 3px, #111 4px,
+      /* 線2 */
+      transparent 4px, transparent 6px,
+      #111 6px, #111 7px
+      /* 線3 */
+    );
+}
+
+/* RWD */
+@media (max-width:800px) {
+  .contact-visual .contact-hero {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .cicon {
+    width: 96px;
+    height: 96px;
+  }
+
+  .contact-title {
+    order: 4;
+    width: 100%;
+    text-align: center;
+    letter-spacing: .18em;
+  }
+
+  .contact-lines {
+    height: 8px;
+  }
+}
