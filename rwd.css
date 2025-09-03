@@ -1,0 +1,317 @@
+/* =========================================================
+   rwd.css — 行動版與小尺寸螢幕的覆寫樣式
+   ========================================================= */
+
+/* 全域：更佳可讀性與可點擊性 -------------------------------- */
+html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
+/* 圖片、影片預設等比縮放不超出版面 */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 支援 iPhone 瀏海安全區（Safari） */
+.container {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+}
+
+/* 讓長字/連結不會把排版撐破 */
+:where(p, li, .card-text, .about, .exp-desc) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* 針對滑動式選單更友善的觸控體驗（不改 HTML 結構） */
+.menu {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+}
+
+.menu a {
+    scroll-snap-align: start;
+}
+
+/* 卡片與互動元件 hover 動畫在低動作偏好時關閉 */
+@media (prefers-reduced-motion: reduce) {
+
+    .card,
+    .btn,
+    .skill-card {
+        transition: none !important;
+    }
+
+    .skill-card:hover,
+    .card:hover,
+    .btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ----------------------------- 1024px 以下（平板含） */
+@media (max-width: 1024px) {
+    .nav-wrap {
+        height: auto;
+        min-height: 56px;
+        padding: 8px 0;
+    }
+
+    .menu {
+        gap: 14px;
+    }
+
+    .hero {
+        padding: 56px 0;
+    }
+
+    .skill-grid {
+        gap: 16px;
+    }
+
+    .exp-card {
+        padding: 14px;
+    }
+}
+
+/* ----------------------------- 900px 以下 */
+@media (max-width: 900px) {
+
+    /* 標題與字幕採用流體字級 */
+    h1 {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+    }
+
+    .subtitle1 {
+        font-size: clamp(1.1rem, 4.2vw, 1.6rem);
+    }
+
+    .subtitle2 {
+        font-size: clamp(1rem, 3.6vw, 1.25rem);
+    }
+
+    section {
+        padding: 56px 0;
+    }
+
+    .about {
+        max-width: 720px;
+    }
+}
+
+/* ----------------------------- 768px 以下（手機常見寬度） */
+@media (max-width: 768px) {
+
+    /* 導覽列：維持單行但可橫向滑動，不會擠爆 */
+    .nav-wrap {
+        gap: 12px;
+    }
+
+    .menu a {
+        padding: 10px 4px;
+        font-weight: 600;
+    }
+
+    /* 主視覺 */
+    .hero {
+        padding: 44px 0;
+    }
+
+    .chips {
+        gap: 6px;
+        margin-top: 16px;
+    }
+
+    .chip1 {
+        font-size: 1rem;
+    }
+
+    .chip {
+        font-size: .85rem;
+        padding: 6px 10px;
+    }
+
+    /* 技能卡片網格：縮小最小寬避免擠掉 */
+    .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+    }
+
+    .skill-card {
+        padding: 16px;
+    }
+
+    .skill-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 作品集卡片：維持 16:9 圖面比例避免跳動 */
+    .card-img-top {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* 經歷時間軸：改為直向堆疊（與 style.css 相容，雙保險） */
+    .exp-item {
+        grid-template-columns: 1fr;
+    }
+
+    .exp-aside {
+        text-align: left;
+        order: -1;
+    }
+
+    .exp-head {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .exp-status {
+        font-size: .95rem;
+    }
+
+    /* 能力矩陣：縮小間距與字級 */
+    .competency-matrix {
+        gap: 8px;
+    }
+
+    .competency-matrix .row {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    .about-exp-tags li {
+        font-size: 14px;
+        padding: 4px 10px;
+    }
+}
+
+/* ----------------------------- 600px 以下（小手機） */
+@media (max-width: 600px) {
+    h1 {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+    }
+
+    section {
+        padding: 44px 0;
+    }
+
+    .card-text {
+        font-size: .95rem;
+        text-indent: 1.5em;
+    }
+
+    .exp-tags {
+        gap: 6px;
+    }
+
+    .exp-tags li {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .contact .card {
+        padding: 16px;
+    }
+}
+
+/* ----------------------------- 420px 以下（超小螢幕） */
+@media (max-width: 420px) {
+    .brand {
+        font-size: 1.05rem;
+    }
+
+    .brand .logo {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .skill-card b {
+        font-size: 1rem;
+    }
+
+    .chip,
+    .chip1 {
+        padding: 5px 10px;
+    }
+
+    .gallery {
+        gap: 14px;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .exp-card {
+        border-radius: 10px;
+    }
+}
+
+/* ----------------------------- 補強：100vh 問題（iOS/Android 瀏覽器 UI 高度變動） */
+@supports (height: 100dvh) {
+    .min-h-screen {
+        min-height: 100dvh;
+    }
+}
+
+/* ----------------------------- 小工具類（可選用） */
+.stack-sm {
+    display: grid;
+    gap: 8px;
+}
+
+.stack-md {
+    display: grid;
+    gap: 12px;
+}
+
+.full-bleed {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
