@@ -129,11 +129,17 @@ h1 {
 }
 
 .chip {
-  background: #e9eefb;
+  background: #e5ebf9;
   color: #18387d;
   padding: 6px 10px;
   border-radius: 999px;
   font-size: .9rem
+}
+
+.chip:hover {
+  background: #18387d;
+  color: #fff;
+  cursor: pointer;
 }
 
 section {
@@ -154,9 +160,30 @@ h2 {
   color: #333
 }
 
+.about-exp-tags {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 12px auto 0;
+  list-style: none;
+  justify-content: center; 
+}
 
+.about-exp-tags li {
+  font-size: 16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f2f5ff;
+  color: #18387d;
+  border: 1px solid #e3e9ff;
+}
 
-
+.about-exp-tags li:hover {
+  background: #18387d;
+  color: #fff;
+  cursor: pointer;
+}
 
 
 
@@ -272,6 +299,10 @@ h2 {
 }
 
 /*------ 個人經歷（時間軸）------- */
+.highlight {
+  background: linear-gradient(transparent 60%, #fff176 60%);
+  font-weight: 600;
+}
 
 /* 經歷清單 */
 .exp-list {
